@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContactsForm = styled.form`
+export const Wrapper = styled.form`
 width: 400px;
     border: 2px solid black;
     margin-left: 10px;

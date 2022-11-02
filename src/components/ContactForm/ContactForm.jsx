@@ -1,20 +1,14 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid'
-import { ContactsForm , Input, Label, Span, Button  } from './ContactForm.styled';
+import { Wrapper , Input, Label, Span, Button  } from './ContactForm.styled';
 
-class Form extends Component {
+class ContactForm extends Component {
   state = {
      name: '',
     number: '',
   }
 
-  nameInputId = nanoid()
-  numberInputId = nanoid()
-
-
-
-    handleChange = event => {
+handleInputChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({
       [name]: value,
@@ -23,7 +17,6 @@ class Form extends Component {
 
    handleSubmit = event => {
      event.preventDefault();
-
 
      this.props.onSubmit(this.state);
      this.reset();
@@ -38,7 +31,7 @@ class Form extends Component {
 
   render() {
     return (
-      <ContactsForm onSubmit={this.handleSubmit} >
+      <Wrapper onSubmit={this.handleSubmit} >
           <Label htmlFor={this.nameInputId}>
            <Span>First Name</Span>
           <Input
@@ -49,7 +42,7 @@ class Form extends Component {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={this.state.name}
-            onChange={this.handleChange}
+            onChange={this.handleInputChange}
             id={this.nameInputId}
         />
           </Label>
@@ -68,13 +61,13 @@ class Form extends Component {
           </Label>
 
           <Button type="submit" > Add contact </Button>
-        </ContactsForm>
+        </Wrapper>
     )
   }
 }
 
-Form.propTypes = {
+ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default Form;
+export default ContactForm;
