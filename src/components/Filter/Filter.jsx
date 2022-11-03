@@ -1,23 +1,13 @@
-
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Label, Input } from './Filter.style';
 
-
-const Filter = ({value, inputFilterContact}) => {
-
+const Filter = ({ value, inputFilterContact }) => {
   return (
     <Label>
       Find contacts by name
-      <Input
-        type='text'
-        value={value}
-        onChange={inputFilterContact}
-
-      />
+      <Input type="text" value={value} onChange={inputFilterContact}></Input>
     </Label>
-
   );
-
 };
 
 Filter.propTypes = {
@@ -25,4 +15,4 @@ Filter.propTypes = {
   inputFilterContact: PropTypes.func.isRequired,
 };
 
-  export default Filter;
+export default Filter;
